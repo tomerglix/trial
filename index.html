@@ -29,7 +29,7 @@
 			button=document.getElementById("roundRedButton");
 			button.value="Location sent";
 			navigator.geolocation.getCurrentPosition(onSuccess, onError);
-			window.setTimeout(restore_button,0);
+			window.setTimeout(restore_button,1000);
 		}
 		function restore_button()
 		{
