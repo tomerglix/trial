@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="tomer_style.css">
+	<link rel="stylesheet" type="text/css" href="trials.css">
 	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 </head>
 
 <html>
 	<body>
+		<form>
+			<div class="center" style="position: absolute; left: 0; top: 0; height: 100%; width: 100%;">
+                  <table style="border: 0px solid red; height: 100%; width: 100%;">
+                        <tr style="border: 0px solid yellow;">
+                              <td style="border: 0px solid green;">&nbsp;</td>
+                        </tr>
+                        <tr style="border: 0px solid blue;">
+                              <td style="border: 0px solid green;"><input id="roundRedButton" type="submit" value="Panic!" onclick="call_for_help()" /></td>
+                        </tr>
+                        <tr style="border: 0px solid blue;">
+                              <td style="border: 0px solid green;">&nbsp;</td>
+                        </tr>
+                  </table>
+			</div>
+		</form>
 
-		<div class="center">
-		
-			<input  id="roundRedButton" type="submit" value="Panic!" onclick="call_for_help()" />
-			
-		</div>
-
-
-
-
-
-		
 		<script type="text/javascript" charset="utf-8">
 		function call_for_help()
 		{
 			button=document.getElementById("roundRedButton");
 			button.value="Location sent";
 			navigator.geolocation.getCurrentPosition(onSuccess, onError);
-			window.setTimeout(restore_button,3000);
+			
+			//window.setTimeout(restore_button,3000);
 		}
 		function restore_button()
 		{
@@ -51,6 +56,7 @@
 	    			"Latitude: "	+ position.coords.latitude 	+ "\n" +
 	    			"Longitude: "		+ position.coords.longitude + "\n\n" +
 	    			"Your'e location has been sent to the local police.\n");
+	    	restore_button();
 	    }
 	
 	    // onError Callback receives a PositionError object
