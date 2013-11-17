@@ -7,22 +7,18 @@
 
 <html>
 	<body>
-		<form>
-			<div class="center" style="position: absolute; left: 0; top: 0; height: 100%; width: 100%;">
-                  <table style="border: 0px solid red; height: 100%; width: 100%;">
-                        <tr style="border: 0px solid yellow;">
-                              <td style="border: 0px solid green;">&nbsp;</td>
-                        </tr>
-                        <tr style="border: 0px solid blue;">
-                              <td style="border: 0px solid green;"><input id="roundRedButton" type="submit" value="Panic!" onclick="call_for_help()" /></td>
-                        </tr>
-                        <tr style="border: 0px solid blue;">
-                              <td style="border: 0px solid green;">&nbsp;</td>
-                        </tr>
-                  </table>
-			</div>
-		</form>
-		 
+
+		<div class="center">
+		
+			<input  id="roundRedButton" type="submit" value="Panic!" onclick="call_for_help()" />
+			
+		</div>
+
+
+
+
+
+		
 		<script type="text/javascript" charset="utf-8">
 		function call_for_help()
 		{
@@ -36,6 +32,12 @@
 			button=document.getElementById("roundRedButton");
 			button.value="Panic!";
 		}
+		// Wait for device API libraries to load
+	    //
+	   // document.addEventListener("deviceready", onDeviceReady, false);
+	
+	    // device APIs are available
+	    //
 	    function onDeviceReady() 
 	    {
 	        navigator.geolocation.getCurrentPosition(onSuccess, onError);
