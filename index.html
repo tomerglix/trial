@@ -3,49 +3,42 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" charset="UTF-8" src="cordova.js"></script>
+	<title>SOS Button</title>
 </head>
 
 <html>
 	<body>
 		<form >
-			<div class="center" style="position: absolute; left: 0; top: 0; height: 100%; width: 100%;"> 
-                  <table style="border: 0px solid red; height: 100%; width: 100%;">
-                        <tr style="border: 0px solid yellow;" height="20%">
-                              <td style="border: 0px solid green;">&nbsp;</td>
-                        </tr>
-                        <tr style="border: 0px solid blue;" height="40%">
-                              <td style="border: 0px solid green;"><input id="roundRedButton" type="submit" value="Panic!" onclick="CallForHelp(); return false;" />
-                              	
-                              </td>
-                        </tr>
-                        <tr style="border: 1px solid blue;" height="40%">
-                              <td style="border: 0px solid green;" valign="top">
-                              		
-									<div id="contactsSection" >
-										<p><u>Contacts circle</u></p>
-													
-										<div id="contactsList">
-											
-										</div>
-										
-										<div id='addingContactField' style='display:none'>
-											
-											<input class="submitButtonStyle" type="submit" value="X" onclick="CancelAdding(); return false" />
-											Name:<input type="text" size="10" id="contactName"/>
-											Number:<input type="tel" size="10" id="contactNumber" />
-											<input class="submitButtonStyle" type="submit" value="Add" onclick="AddContact(); return false "  />
-											
-										</div>
-										
-										<div id="addbutton" style="display: block">
-											<input class="submitButtonStyle" type="submit" value="Add contact" onclick="ToggleDisplay('addingContactField'); ToggleDisplay('addbutton'); return false" />
-										</div>
-										
-									</div>
-                              </td>
-                        </tr>
-                  </table>
-			</div>
+			<div  style="position: absolute; left: 0; top: 0; height: 100%; width: 100%;"> 
+				<div id="blank" style="height: 20%">
+					
+				</div>
+				<div id="buttonSection" class="center">
+					<input id="roundRedButton" type="submit" value="Panic!" onclick="CallForHelp(); return false;" />
+				</div>
+				<div id="contacts">
+					<div id="contactsSection" >
+						<p class="headerDecoration">Contacts Circle</p>
+									
+						<div id="contactsList">
+							
+						</div>
+						
+						<div id='addingContactField' style='display:none; width=100%'>
+							
+							<input class="submitButtonStyle" type="submit" value="X" onclick="CancelAdding(); return false" />
+							Name:<input type="text" size="10" id="contactName"/>
+							Number:<input type="tel" size="10" id="contactNumber" />
+							<input class="submitButtonStyle" type="submit" value="Add" onclick="AddContact(); return false "  />
+							
+						</div>
+						
+						<div id="addbutton" style="display: block">
+							<input class="submitButtonStyle" type="submit" value="Add contact" onclick="ToggleDisplay('addingContactField'); ToggleDisplay('addbutton'); return false" />
+						</div>		
+					</div>
+  				</div>
+  			</div>
 		</form>
 
 		<script type="text/javascript" charset="UTF-8">
@@ -151,7 +144,6 @@
 			button.value="Location sent";
 			navigator.geolocation.getCurrentPosition(onSuccess, onError);
 			
-			//window.setTimeout(restore_button,3000);
 		}
 		function RestoreButtun()
 		{
